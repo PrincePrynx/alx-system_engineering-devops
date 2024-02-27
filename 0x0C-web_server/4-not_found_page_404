@@ -8,10 +8,10 @@ apt-get update
 
 apt-get install -y nginx
 
-echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html > /dev/null
 sed -i "30i $redirect_301" /etc/nginx/sites-available/default
 
-echo "Ceci n'est pas une page" > /var/www/html/404.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html > /dev/null
 sed -i "48i $error_404" /etc/nginx/sites-available/default
 
 service nginx restart
