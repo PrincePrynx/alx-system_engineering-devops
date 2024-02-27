@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Configures Nginx server for redirections
 
-redirect_301="\\\trewrite ^/redirect_me https://https://bragiapollohaven.wordpress.com/ permanent;"
+redirect_301="\\\trewrite ^/redirect_me https://bragiapollohaven.wordpress.com/ permanent;"
 
 apt-get update
 
