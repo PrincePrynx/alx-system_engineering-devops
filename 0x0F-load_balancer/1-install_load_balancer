@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy on lb-01 server
+
+#installation
+apt-get update
+apt-get install -y haproxy
+
+#configuration
+cat <<EOL >> /etc/haproxy/haproxy.cfg
+frontend DEVprynx
+  bind *:80
+  default_backend myservers
+
+backend myservers
+  balance roundrobin
+  server 423233-web-01 100.24.255.23
+  server 423233-web-02 18.209.224.24
+EOL
+
+#restarts haproxy
+service haproxy restart
